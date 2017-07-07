@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:int="http://www.springframework.org/schema/integration"
+	xmlns:int-http="http://www.springframework.org/schema/integration/http"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/integration
+    http://www.springframework.org/schema/integration/spring-integration.xsd">
+
+	<!-- <int:header-value-router header-name="txn" input-channel="requestChannel" default-output-channel="outputChannel">
+		<int:mapping value="GETCUSTOMER" channel="getCustomerChannel" /> 
+		
+		
+	</int:header-value-router> -->
+	
+	<int:gateway service-interface="com.pwc.demo.gateway.CustomerGateway" 
+				default-request-channel="requestChannel" default-reply-channel="outputChannel">
+		<int:method name="getCustomer" request-channel="getCustomerChannel" />
+		<int:method name="addCustomer" request-channel="addCustomerChannel" />
+		
+	</int:gateway>
+	
+	
+
+	
+</beans>
