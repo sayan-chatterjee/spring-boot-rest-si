@@ -1,9 +1,17 @@
 package com.pwc.demo.model;
 
-public class Customer {
+import java.io.Serializable;
+
+public class Customer implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private int id;
 	private String name;
 	private int age;
+	private Address address;
 	
 	public Customer(){
 	}
@@ -37,7 +45,16 @@ public class Customer {
 	public void setAge(int age) {
 		this.age = age;
 	}
+
 	
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 	public String toString(){
 		String info = String.format("Customer with id = %d, name = %s, age = %d", id, name, age);
 		return info;

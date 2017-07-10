@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pwc.demo.gateway.CustomerGateway;
 import com.pwc.demo.model.Customer;
+import com.pwc.demo.si.rest.gateway.CustomerGateway;
  
 
 @RestController

@@ -11,7 +11,7 @@
     http://www.springframework.org/schema/integration/http/spring-integration-http.xsd">
 
 
-	<int:service-activator ref="customerActivator"  
+	<int:service-activator ref="customerActivator"
         method="getCustomer" input-channel="getCustomerChannel" output-channel="outputChannel" />
     <int:service-activator ref="customerActivator"  
         method="addCustomer" input-channel="addCustomerChannel" output-channel="outputChannel" /> 

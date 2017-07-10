@@ -11,10 +11,11 @@
     http://www.springframework.org/schema/integration/http/spring-integration-http.xsd">
 
 	<import resource="classpath:config/si-channel.xml"/>
-	<import resource="classpath:config/si-activator.xml"/>	
+	<import resource="classpath:config/si-activator.xml"/>
 	<import resource="classpath:config/si-gateway.xml"/>
-	<import resource="classpath:config/si-http.xml"/>
-	
-	
+	<import resource="classpath:config/si-http-inbound.xml"/>
+	<import resource="classpath:config/si-http-outbound.xml"/>
+	<import resource="classpath:config/rest-si-gateway.xml"/>
+	<import resource="classpath:config/si-chain.xml"/>
     
 </beans>

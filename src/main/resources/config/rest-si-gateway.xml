@@ -15,10 +15,10 @@
 		
 	</int:header-value-router> -->
 	
-	<int:gateway service-interface="com.pwc.demo.si.gateway.SICustomerGateway" 
+	<int:gateway service-interface="com.pwc.demo.si.rest.gateway.CustomerGateway" 
 				default-request-channel="requestChannel" default-reply-channel="outputChannel">
-		<int:method name="fetchAddress" request-channel="fetchAddressReqChannel" />
-		
+		<int:method name="getCustomer" request-channel="getCustomerChannel" />
+		<int:method name="addCustomer" request-channel="addCustomerChannel" />
 		
 	</int:gateway>
 	

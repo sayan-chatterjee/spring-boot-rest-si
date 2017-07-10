@@ -9,30 +9,19 @@
     http://www.springframework.org/schema/integration/spring-integration.xsd
     http://www.springframework.org/schema/integration/http
     http://www.springframework.org/schema/integration/http/spring-integration-http.xsd">
+	
+	<bean id="addressTransformer" class="com.pwc.demo.si.transformer.AddressTransformer" />
+	<bean id="addressResponseTransformer" class="com.pwc.demo.si.transformer.AddressRespTransformer" />
 
-	<!-- CHANNEL -->
-	<int:channel id="wsRequestChannel" />
-	<int:channel id="wsResponseChannel" />
-	<int:channel id="requestChannel" />
-    <int:channel id="outputChannel" />
-    
-    <int:channel id="getCustomerChannel" />
-    <int:channel id="addCustomerChannel" />
-    <int:channel id="fetchAddressReqChannel" />
-    
-    
-    <!-- ////////////// -->
-	<!-- POST & PUT REQUESTS -->
-	<!-- ////////////// -->
+	<int:chain id="getCustomerChain" input-channel="fetchAddressReqChannel" output-channel="wsRequestChannel">
+		<int:transformer ref="addressTransformer" method="transform"/>
+		
+	</int:chain>
 	
-	<int:channel id="httpPutChannel" />
-	<int:channel id="routeRequest" />
-	
-	
-	<!-- ////////////// -->
-	<!-- DELETE REQUESTS -->
-	<!-- ////////////// -->
-	<int:channel id="httpDeleteChannel" />
+	<int:chain id="getAddressChain" input-channel="wsResponseChannel" output-channel="outputChannel">
+		<int:transformer ref="addressResponseTransformer" method="transform"/>
+		
+	</int:chain>
 	
     
 </beans>
